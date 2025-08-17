@@ -6,10 +6,61 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../generated/prisma"
+  // output = "../generated/prisma" // Убедитесь, что путь корректен, или удалите, если используется путь по умолчанию
 }
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+model Image {
+  id   Int    @id @default(autoincrement())
+  type Type[]
+  url  String
+}
+
+enum Type {
+  Products
+  Machines
+  Production
+}
+
+model Drawing {
+  id          Int         @id @default(autoincrement())
+  name        String      @unique
+  description String
+  imageurl    String[]
+
+  executions  Execution[]
+
+}
+
+model Execution {
+  id             Int      @id @default(autoincrement())
+  name           String
+  description    String
+  model3durl     String
+  certificate    String
+  imageurls      String[]
+
+  drawingId      Int
+  drawing        Drawing   @relation(fields: [drawingId], references: [id])
+
+  items          ExecutionItem[]
+}
+
+model ExecutionItem {
+  id          Int     @id @default(autoincrement())
+  name        String
+  mass        Float
+  price1      Float
+  price2      Float
+
+  executionId Int
+  execution   Execution @relation(fields: [executionId], references: [id])
+
+  @@index([executionId, name])
+  // Если планируете полнотекстовый поиск по имени, добавьте:
+  // @@fulltext([name]) // Требует настройки в БД и поддержки со стороны Prisma
 }
