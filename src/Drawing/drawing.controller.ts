@@ -1,5 +1,4 @@
 import { Controller, Get, Param } from '@nestjs/common';
-import { Type } from '@prisma/client';
 import { DrawingService } from './drawing.service';
 import { ExecutionService } from 'src/Execution/execution.service';
 
@@ -18,6 +17,12 @@ export class DrawingController {
   @Get(':DrawName')
   async GetExecutions(@Param('DrawName') DrawName: string) {
     const DrawId = await this.drawingService.GetIdByName(DrawName);
-    return this.executionService.GetManyByDrawingId(DrawId!.id)
+    const res = await this.executionService.GetManyByDrawingId(DrawId!.id)
+
+    return res.map(item => ({
+        name: item.name,
+        description: item.description,
+        imageurl: item.imageurls[0]
+    }))
   }
 }
