@@ -4,7 +4,7 @@ CREATE TYPE "public"."Type" AS ENUM ('Products', 'Machines', 'Production');
 -- CreateTable
 CREATE TABLE "public"."Image" (
     "id" SERIAL NOT NULL,
-    "type" "public"."Type"[],
+    "type" "public"."Type" NOT NULL,
     "url" TEXT NOT NULL,
 
     CONSTRAINT "Image_pkey" PRIMARY KEY ("id")
@@ -15,7 +15,7 @@ CREATE TABLE "public"."Drawing" (
     "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
     "description" TEXT NOT NULL,
-    "imageurl" TEXT[],
+    "imageurl" TEXT NOT NULL,
 
     CONSTRAINT "Drawing_pkey" PRIMARY KEY ("id")
 );

@@ -16,7 +16,7 @@ datasource db {
 
 model Image {
   id   Int    @id @default(autoincrement())
-  type Type[]
+  type Type
   url  String
 }
 
@@ -30,7 +30,7 @@ model Drawing {
   id          Int         @id @default(autoincrement())
   name        String      @unique
   description String
-  imageurl    String[]
+  imageurl    String
 
   executions  Execution[]
 
