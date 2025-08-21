@@ -10,19 +10,25 @@ export class DrawingController {
   ) {}
 
   @Get()
-  GetImages() {
-    return this.drawingService.GetAll();
+  async GetAllNames() {
+    const res = await this.drawingService.GetAll();
+    return res.map((item) => ({
+      name: item.name,
+    }));
   }
 
   @Get(':DrawName')
   async GetExecutions(@Param('DrawName') DrawName: string) {
-    const DrawId = await this.drawingService.GetIdByName(DrawName);
-    const res = await this.executionService.GetManyByDrawingId(DrawId!.id)
-
-    return res.map(item => ({
-        name: item.name,
-        description: item.description,
-        imageurl: item.imageurls[0]
-    }))
+    const Draw = await this.drawingService.GetByName(DrawName);
+    const execution =  (await this.executionService.GetManyByDrawingId(Draw!.id)).map((item) => ({
+      name: item.name,
+      description: item.description,
+      imageurl: item.imageurls[0],
+    }));
+    return {
+      name: Draw?.name,
+      description: Draw?.description,
+      execution
+    }
   }
 }

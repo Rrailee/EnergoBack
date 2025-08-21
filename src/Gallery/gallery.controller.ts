@@ -7,8 +7,11 @@ export class GalleryController {
   constructor(private readonly galleryService: GalleryService) {}
 
   @Get(":ImageType")
-  GetImages(@Param("ImageType") ImageType: Type ){
-    return this.galleryService.GetForType(ImageType)
+  async GetImages(@Param("ImageType") ImageType: Type ){
+    const res = await this.galleryService.GetForType(ImageType)
+    return res.map(item => ({
+      url: item.url,
+    }))
   }
   
 }
