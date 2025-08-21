@@ -26,4 +26,12 @@ export class ExecutionService {
         }
     })
   }
+
+  GetTableByID(ExecId: number){
+    return this.prismaService.executionItem.findMany({
+      where: {
+        executionId: ExecId
+      }
+    })
+  }
 }
