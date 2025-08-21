@@ -2,7 +2,6 @@
 -- PostgreSQL database dump
 --
 
-\restrict UtuSwxPUYugCEuUrTAXdpp8MkoNx4ojsOg61zYvWwR2WaB3InBKb8KnzEMmcj22
 
 -- Dumped from database version 17.6 (Debian 17.6-1.pgdg13+1)
 -- Dumped by pg_dump version 17.6 (Debian 17.6-1.pgdg13+1)
@@ -401,6 +400,3 @@ REVOKE USAGE ON SCHEMA public FROM PUBLIC;
 --
 -- PostgreSQL database dump complete
 --
-
-\unrestrict UtuSwxPUYugCEuUrTAXdpp8MkoNx4ojsOg61zYvWwR2WaB3InBKb8KnzEMmcj22
-
