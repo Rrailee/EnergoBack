@@ -10,6 +10,7 @@ export class GalleryController {
   async GetImages(@Param("ImageType") ImageType: Type ){
     const res = await this.galleryService.GetForType(ImageType)
     return res.map(item => ({
+      id: item.id,
       url: item.url,
     }))
   }
