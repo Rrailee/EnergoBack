@@ -7,9 +7,9 @@ export class ExecutionService {
 
   GetManyByDrawingId(id: number) {
     return this.prismaService.execution.findMany({
-        where: {
-            drawingId: id
-        }
+      where: {
+        drawingId: id,
+      },
     });
   }
 
@@ -19,19 +19,35 @@ export class ExecutionService {
     });
   }
 
-  GetByName(Execname: string){
+  GetByName(Execname: string) {
     return this.prismaService.execution.findFirst({
-        where: {
-            name: Execname
-        }
-    })
+      where: {
+        name: Execname,
+      },
+    });
   }
 
-  GetTableByID(ExecId: number){
-    return this.prismaService.executionItem.findMany({
+  async GetTableByID(ExecId: number, page: number = 1, limit: number = 10) {
+    const skip = (page - 1) * limit;
+
+    const lines = await this.prismaService.executionItem.findMany({
       where: {
-        executionId: ExecId
+        executionId: ExecId,
+      },
+      skip,
+      take: limit,
+    });
+
+    const total = await this.prismaService.executionItem.count({where: {executionId: ExecId}})
+
+    return {
+      data: lines,
+      meta: {
+        currentPage: page,
+        itemsPerPage: limit,
+        totalItems: total,
+        totalPages: Math.ceil(total / limit)
       }
-    })
+    }
   }
 }
