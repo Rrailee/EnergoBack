@@ -19,17 +19,17 @@ export class ExecutionController {
   }
 
   @Post(':ExecName')
-  
+
   async GetTable(
     @Param('ExecName') Execname: string,
-    @Query('page') page: number = 1,
-    @Query('limit') limit: number = 16,
+    @Query('page') page: string = "1",
+    @Query('limit') limit: string = "16",
   ) {
     const ExecId = await this.executionService.GetIdByName(Execname);
     const ExecTable = await this.executionService.GetTableByID(
       ExecId?.id!,
-      page,
-      limit,
+      parseInt(page),
+      parseInt(limit),
     );
     return {
       data: ExecTable.data.map((item) => ({
