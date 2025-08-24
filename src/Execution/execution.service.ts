@@ -27,6 +27,15 @@ export class ExecutionService {
     });
   }
 
+  GetIdByName(Execname: string) {
+    return this.prismaService.execution.findFirst({
+      where: {
+        name: Execname,
+      },
+      select:{id: true}
+    });
+  }
+
   async GetTableByID(ExecId: number, page: number = 1, limit: number = 10) {
     const skip = (page - 1) * limit;
 
@@ -38,7 +47,9 @@ export class ExecutionService {
       take: limit,
     });
 
-    const total = await this.prismaService.executionItem.count({where: {executionId: ExecId}})
+    const total = await this.prismaService.executionItem.count({
+      where: { executionId: ExecId },
+    });
 
     return {
       data: lines,
@@ -46,8 +57,8 @@ export class ExecutionService {
         currentPage: page,
         itemsPerPage: limit,
         totalItems: total,
-        totalPages: Math.ceil(total / limit)
-      }
-    }
+        totalPages: Math.ceil(total / limit),
+      },
+    };
   }
 }
