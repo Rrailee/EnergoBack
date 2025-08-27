@@ -60,7 +60,4 @@ model ExecutionItem {
   executionId Int
   execution   Execution @relation(fields: [executionId], references: [id])
 
-  @@index([executionId, name])
-  // Если планируете полнотекстовый поиск по имени, добавьте:
-  // @@fulltext([name]) // Требует настройки в БД и поддержки со стороны Prisma
 }
