@@ -306,24 +306,6 @@ COPY public."Execution" (id, name, description, model3durl, certificate, imageur
 43	Т29	Описание для Т29	""	""	{"",""}	3
 44	Т41	Описание для Т41	""	""	{"",""}	3
 45	Т42	Описание для Т42	""	""	{"",""}	3
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \.
 
 
