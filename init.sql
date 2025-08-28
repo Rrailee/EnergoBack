@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict xfY9csmvw47V69uoHbzHxUcaPGH2bGhg0FAzOobr2AvDYh15GncUVy2iaNMKkII
+\restrict 6VI7wphkcgHcn0AeSbPAmqDhMTn1BTkalMX37bSkkbKZyGvzhU2i6qk6up2hx3d
 
 -- Dumped from database version 17.6 (Debian 17.6-1.pgdg13+1)
 -- Dumped by pg_dump version 17.6 (Debian 17.6-1.pgdg13+1)
@@ -263,7 +263,6 @@ COPY public."Drawing" (id, name, description, imageurl) FROM stdin;
 --
 
 COPY public."Execution" (id, name, description, model3durl, certificate, imageurls, "drawingId") FROM stdin;
-1	КП	Описание для КП	https://storage.yandexcloud.net/energodetal/Models/%D0%9C%D0%BE%D0%B4%D0%B5%D0%BB%D1%8C.glb	https://storage.yandexcloud.net/energodetal/Certificate/%D0%A1%D0%B5%D1%80%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%82.jpg	{https://storage.yandexcloud.net/energodetal/Main/%D0%9A%D0%9F1.png,https://storage.yandexcloud.net/energodetal/Main/%D0%9A%D0%9F2.jpg,https://storage.yandexcloud.net/energodetal/Main/%D0%9A%D0%9F3.jpg}	1
 2	КХ	Описание для КХ	""	""	{""}	1
 5	ТП	Описание для ТП	""	""	{"",""}	1
 6	ТО	Описание для ТО	""	""	{"",""}	1
@@ -274,6 +273,7 @@ COPY public."Execution" (id, name, description, model3durl, certificate, imageur
 11	УП	Описание для УП	""	""	{"",""}	1
 12	ШП	Описание для ШП	""	""	{"",""}	1
 13	КН	Описание для КН	""	""	{"",""}	1
+1	КП	Описание для КП	https://storage.yandexcloud.net/energodetal/Models/%D0%9E%D0%BF%D0%BE%D1%80%D1%8B%20%D0%9A%D0%A5%20%D0%9E%D0%A1%D0%A2%2036-146-88%20Restailed.glb	https://storage.yandexcloud.net/energodetal/Certificate/%D0%A1%D0%B5%D1%80%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%82.jpg	{https://storage.yandexcloud.net/energodetal/Main/%D0%9A%D0%9F1.png,https://storage.yandexcloud.net/energodetal/Main/%D0%9A%D0%9F2.jpg,https://storage.yandexcloud.net/energodetal/Main/%D0%9A%D0%9F3.jpg}	1
 \.
 
 
@@ -985,5 +985,5 @@ REVOKE USAGE ON SCHEMA public FROM PUBLIC;
 -- PostgreSQL database dump complete
 --
 
-\unrestrict xfY9csmvw47V69uoHbzHxUcaPGH2bGhg0FAzOobr2AvDYh15GncUVy2iaNMKkII
+\unrestrict 6VI7wphkcgHcn0AeSbPAmqDhMTn1BTkalMX37bSkkbKZyGvzhU2i6qk6up2hx3d
 
