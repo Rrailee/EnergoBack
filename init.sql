@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict 6VI7wphkcgHcn0AeSbPAmqDhMTn1BTkalMX37bSkkbKZyGvzhU2i6qk6up2hx3d
+\restrict 4WkrIIxPF2QhA7CIj4mATefGXApSM7p6zDFudms1cj2VvcdEEBCW6YXc2WvGh7o
 
 -- Dumped from database version 17.6 (Debian 17.6-1.pgdg13+1)
 -- Dumped by pg_dump version 17.6 (Debian 17.6-1.pgdg13+1)
@@ -274,6 +274,38 @@ COPY public."Execution" (id, name, description, model3durl, certificate, imageur
 11	УП	Описание для УП	""	""	{"",""}	1
 12	ШП	Описание для ШП	""	""	{"",""}	1
 13	КН	Описание для КН	""	""	{"",""}	1
+44	Т41	Описание для Т41	""	""	{"",""}	3
+32	Т19	Описание для Т19	""	""	{"",""}	3
+37	Т23	Описание для Т23	""	""	{"",""}	3
+40	Т26	Описание для Т26	""	""	{"",""}	3
+43	Т29	Описание для Т29	""	""	{"",""}	3
+29	Т16	Описание для Т16	""	""	{"",""}	3
+28	Т15	Описание для Т15	""	""	{"",""}	3
+16	Т5	Описание для Т5	""	""	{"",""}	3
+20	Т9	Описание для Т9	""	""	{"",""}	3
+17	Т6	Описание для Т6	""	""	{"",""}	3
+31	Т18	Описание для Т18	""	""	{"",""}	3
+35	Т43	Описание для Т43	""	""	{"",""}	3
+25	Т46	Описание для Т46	""	""	{"",""}	3
+14	Т3	Описание для Т3	""	""	{"",""}	3
+45	Т42	Описание для Т42	""	""	{"",""}	3
+27	Т14	Описание для Т14	""	""	{"",""}	3
+33	Т20	Описание для Т20	""	""	{"",""}	3
+39	Т25	Описание для Т25	""	""	{"",""}	3
+15	Т4	Описание для Т4	""	""	{"",""}	3
+24	Т44	Описание для Т44	""	""	{"",""}	3
+34	Т21	Описание для Т21	""	""	{"",""}	3
+30	Т17	Описание для Т17	""	""	{"",""}	3
+26	Т13	Описание для Т13	""	""	{"",""}	3
+38	Т24	Описание для Т24	""	""	{"",""}	3
+19	Т8	Описание для Т8	""	""	{"",""}	3
+18	Т7	Описание для Т7	""	""	{"",""}	3
+36	Т22	Описание для Т22	""	""	{"",""}	3
+42	Т28	Описание для Т28	""	""	{"",""}	3
+21	Т10	Описание для Т10	""	""	{"",""}	3
+23	Т12	Описание для Т12	""	""	{"",""}	3
+22	Т11	Описание для Т11	""	""	{"",""}	3
+41	Т27	Описание для Т27	""	""	{"",""}	3
 \.
 
 
@@ -894,7 +926,7 @@ SELECT pg_catalog.setval('public."ExecutionItem_id_seq"', 572, true);
 -- Name: Execution_id_seq; Type: SEQUENCE SET; Schema: public; Owner: EnergoDetal
 --
 
-SELECT pg_catalog.setval('public."Execution_id_seq"', 13, true);
+SELECT pg_catalog.setval('public."Execution_id_seq"', 45, true);
 
 
 --
@@ -985,5 +1017,5 @@ REVOKE USAGE ON SCHEMA public FROM PUBLIC;
 -- PostgreSQL database dump complete
 --
 
-\unrestrict 6VI7wphkcgHcn0AeSbPAmqDhMTn1BTkalMX37bSkkbKZyGvzhU2i6qk6up2hx3d
+\unrestrict 4WkrIIxPF2QhA7CIj4mATefGXApSM7p6zDFudms1cj2VvcdEEBCW6YXc2WvGh7o
 
