@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
 import { DrawingService } from './drawing.service';
 import { ExecutionService } from 'src/Execution/execution.service';
 
@@ -18,17 +18,19 @@ export class DrawingController {
   }
 
   @Get(':DrawName')
-  async GetExecutions(@Param('DrawName') DrawName: string) {
+  async GetExecutions(
+    @Param('DrawName') DrawName: string,
+    @Query('page') page: string = '1',
+    @Query('limit') limit: string = '8',
+  ) {
     const Draw = await this.drawingService.GetByName(DrawName);
-    const execution =  (await this.executionService.GetManyByDrawingId(Draw!.id)).map((item) => ({
-      name: item.name,
-      description: item.description,
-      imageurl: item.imageurls[0],
-    }));
+    const execution = (
+      await this.executionService.GetManyByDrawingId(Draw!.id)
+    )
     return {
       name: Draw?.name,
       description: Draw?.description,
-      execution
-    }
+      execution,
+    };
   }
 }
