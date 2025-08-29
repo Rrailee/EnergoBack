@@ -8,6 +8,11 @@ export class SearchController {
 
   @Get()
   async GetAllNames(@Query('qu') qu: string) {
-    return this.searchService.MainSearch(qu);
+    if (!qu || qu.trim().length === 0) {
+      return [];
+    }
+    
+    const results = await this.searchService.MainSearch(qu.trim());
+    return results.slice(0, 10);
   }
 }
