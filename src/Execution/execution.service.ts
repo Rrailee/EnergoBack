@@ -63,17 +63,17 @@ export class ExecutionService {
     });
   }
 
-  async GetTableByID(ExecId: number, page: number = 1, limit: number = 10) {
+  async GetTableByID(ExecId: number, page: number = 1, limit: number = 10, qu: string = 'КП') {
     const skip = (page - 1) * limit;
 
     const lines = await this.prismaService.executionItem.findMany({
       where: {
+        name: {contains: qu, mode: 'insensitive'},
         executionId: ExecId,
       },
       skip,
       take: limit,
     });
-
     const total = await this.prismaService.executionItem.count({
       where: { executionId: ExecId },
     });

@@ -24,12 +24,14 @@ export class ExecutionController {
     @Param('ExecName') Execname: string,
     @Query('page') page: string = "1",
     @Query('limit') limit: string = "16",
+    @Query('qu') qu: string = "",
   ) {
     const ExecId = await this.executionService.GetIdByName(Execname);
     const ExecTable = await this.executionService.GetTableByID(
       ExecId?.id!,
       parseInt(page),
       parseInt(limit),
+      qu
     );
     return {
       data: ExecTable.data.map((item) => ({
