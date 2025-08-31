@@ -5,15 +5,12 @@ import { PrismaService } from 'src/prisma/prisma.service';
 export class ExecutionService {
   constructor(private readonly prismaService: PrismaService) {}
 
-  async GetManyByDrawingId(id: number, page: number = 1, limit: number = 8) {
-    const skip = (page - 1) * limit;
+  async GetManyByDrawingId(id: number) {
 
     const Execut = await this.prismaService.execution.findMany({
       where: {
         drawingId: id,
       },
-      skip,
-      take: limit,
       select:{
         name: true,
         description: true,
@@ -21,22 +18,13 @@ export class ExecutionService {
       }
     });
 
-    const total = await this.prismaService.execution.count({
-      where: { drawingId: id },
-    });
 
     return {
       data: Execut.map(item => ({
         name: item.name,
         description: item.description,
         imageurl: item.imageurls[0]
-      })),
-      meta: {
-        currentPage: page,
-        itemsPerPage: limit,
-        totalItems: total,
-        totalPages: Math.ceil(total / limit),
-      },
+      }))
     };
   }
 
