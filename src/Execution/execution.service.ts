@@ -51,7 +51,7 @@ export class ExecutionService {
     });
   }
 
-  async GetTableByID(ExecId: number, page: number = 1, limit: number = 10, qu: string = 'КП') {
+  async GetTableByID(ExecId: number, page: number = 1, limit: number = 20, qu: string = 'КП') {
     const skip = (page - 1) * limit;
 
     const lines = await this.prismaService.executionItem.findMany({
