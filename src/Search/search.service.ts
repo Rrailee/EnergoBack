@@ -51,7 +51,6 @@ export class SearchService {
       }))
     );
 
-    // Поиск строк в таблице исполнений
     const lineTable = await this.prismaService.executionItem.findMany({
       where: {
         name: { contains: qu, mode: 'insensitive' },
@@ -59,7 +58,7 @@ export class SearchService {
       include: {
         execution: {
           include: {
-            drawing: true, // включаем связь с исполнением и чертежом
+            drawing: true,
           },
         },
       },

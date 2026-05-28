@@ -1,5 +1,4 @@
 import { Controller, Get, Param, Post, Query } from '@nestjs/common';
-import { Type } from '@prisma/client';
 import { ExecutionService } from './execution.service';
 
 @Controller('products/:DrawName')

@@ -1,12 +1,10 @@
 services:
   db:
-    image: postgres:latest
-    container_name: Energopgdb
+    image: rrailee/energopgdb:latest
+    container_name: Energopgdb1
     environment:
       POSTGRES_USER: EnergoDetal
       POSTGRES_PASSWORD: EnergoDetal
       POSTGRES_DB: EnergoDetal
     ports:
       - "5432:5432"
-    volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
